@@ -1,0 +1,87 @@
+package com.mx.httpclient;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
+
+/**
+ * 用于消息的响应
+ * 
+ * @author gaofeng
+ *
+ */
+public class ArteryPreResopnseMessage implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3769389811547523023L;
+
+	// 消息版本号
+	private String msgVersion;
+	// 校验域
+	private String macField;
+	// 签名域
+	private String signField;
+	// 参数域
+	private String paramesField;
+
+	public String getMsgVersion() {
+		return msgVersion;
+	}
+
+	public void setMsgVersion(String msgVersion) {
+		this.msgVersion = msgVersion;
+	}
+
+	public String getMacField() {
+		return macField;
+	}
+
+	public void setMacField(String macField) {
+		this.macField = macField;
+	}
+
+	public String getSignField() {
+		return signField;
+	}
+
+	public void setSignField(String signField) {
+		this.signField = signField;
+	}
+
+	public String getParamesField() {
+		return paramesField;
+	}
+
+	public void setParamesField(String paramesField) {
+		this.paramesField = paramesField;
+	}
+
+	@Override
+	public String toString() {
+		return "BaseMassage [msgVersion=" + msgVersion + ", macField="
+				+ macField + ", signField=" + signField + ", paramesField="
+				+ paramesField + "]";
+	}
+
+	
+
+	public void calcMac() {
+		this.macField = "000009";
+	}
+
+	public void calcSign() {
+		this.signField = "FFFFFF";
+	}
+	
+	public void initFromString (String initData) throws JSONException{
+		JSONObject json = new JSONObject(initData);
+		this.macField = json.getString("macField");
+		this.msgVersion = json.getString("msgVersion");
+		this.paramesField = json.getString("paramesField");
+		this.signField = json.getString("signField");
+	}
+
+}

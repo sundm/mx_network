@@ -1,0 +1,80 @@
+package com.mx.httpclient;
+
+
+public interface ArteryPreDef {
+	//1代表调起生产   2代表调起测试环境
+	public static int MODE_PRO = 1;
+	public static int MODE_TEST = 2;
+
+	// 交互御定义
+	public static String FIELD_msgVersion = "msgVersion";
+	public static String FIELD_msgType = "msgType";
+	public static String FIELD_tradeId = "tradeId";
+	public static String FIELD_tradeTime = "tradeTime";
+	public static String FIELD_tradeRandom = "tradeRandom";
+	public static String FIELD_termId = "termId";
+	public static String FIELD_successful = "successful";
+	public static String FIELD_resultDesc = "resultDesc";
+	public static String FIELD_result = "result";
+	public static String FIELD_macField = "macField";
+	public static String FIELD_pan = "pan";
+	public static String FIELD_dataNotField55 = "dataNotField55";
+	public static String FIELD_field55 = "field55";
+	public static String FIELD_panSN = "panSN";
+	public static String FIELD_cardType = "cardType";
+	public static String FIELD_usedAmount = "usedAmount";
+	public static String FIELD_hostAmount = "hostAmount";
+	public static String FIELD_tradeAmount = "tradeAmount";
+	public static String FIELD_retryTime = "retryTime";
+	public static String FIELD_interval = "interval";
+	public static String FIELD_deviceId = "deviceId";
+	public static String FIELD_userId = "userId";
+	public static String FIELD_payExtraInfo = "payExtraInfo";
+	public static String FIELD_channel = "channel";
+	public static String FIELD_payResult = "payResult";
+	public static String FIELD_method = "method";
+	public static String FIELD_tac = "tac";
+	public static String FIELD_loadResult = "loadResult";
+	public static String FIELD_issuerAuthData = "issuerAuthData";
+	public static String FIELD_script = "script";
+	public static String FIELD_tradeIdList = "tradeIdList";
+	
+	
+	//不同的支付渠道
+	//银联无卡
+	public static String PAY_CHANNEL_ONLINE_UNIONPAY = "100002";
+	
+	
+	//不同的圈存渠道
+	public static String LOAD_CHANNEL_HFTONG_CARD = "200002";
+	
+	//支付渠道
+	public static final String PARAMES_PAYID = "payId";
+	
+	//圈存渠道
+	public static final String PARAMES_MERID = "merId";
+	
+	//支付渠道
+	public static final String PARAMES_CID = "cid";
+	
+	//客户端错误             
+	//错误描述：1、json异常错误 2、请求实例化错误
+	public static final int ERROR_FROM_CLIENT = BaseCodeDef.TRANSMIT_CODE + 1;
+	
+	//参数错误               
+	//错误描述：1、没有找到商户id 2、商户id非法
+	public static final int ERROR_PARAMES_FAILED = BaseCodeDef.TRANSMIT_CODE + 2;
+	
+	//客户端https服务初始化失败    
+	//错误描述：1、客户端网络协议错误，请重启网络后重试   2、客户端网络异常，请重启网络后重试
+	public static final int ERROR_HTTP_INIT = BaseCodeDef.TRANSMIT_CODE + 3;
+	
+	//http未返回200          
+	//错误描述: 1、网络错误，请检查您的网络状态
+	public static final int ERROR_HTTP_ERROR = BaseCodeDef.TRANSMIT_CODE + 4;
+	
+	//http返回格式错误,后台可能有异常    
+	//错误描述：服务器不可用
+	public static final int ERROR_HTTP_FORMAT_ERROR = BaseCodeDef.TRANSMIT_CODE + 5;
+	
+}
